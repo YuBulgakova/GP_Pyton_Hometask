@@ -29,6 +29,16 @@ for el in seasons:
     if month in seasons[el]:
         print(el)
 
+# via list:
+seasons = ['winter', 'spring', 'summer', 'fall']
+months = [['1', '2', '12'], ['3', '4', '5'], ['6', '7', '8'], ['9', '10', '11']]
+
+month = input('Enter month: ')
+
+for i in range(len(months)):
+    if month in months[i]:
+        print(seasons[i])
+
 # 4
 line = input('Enter the line')
 
