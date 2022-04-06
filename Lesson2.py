@@ -61,3 +61,39 @@ for i in range(len(my_list)):
         my_list.insert(len(my_list) + 1, number)
         break
 print(my_list)
+
+#6*
+old_list = [
+    (1, {'название': 'компьютер', 'цена': 20000, 'количество': 5, 'eд': 'шт.'}),
+    (2, {'название': 'принтер', 'цена': 6000, 'количество': 2, 'eд': 'шт.'}),
+    (3, {'название': 'сканер', 'цена': 2000, 'количество': 7, 'eд': 'шт.'})
+]
+new_list = []
+
+# отрезаем элементы с нумерацией:
+for i in range(len(old_list)):
+    new_list.append(old_list[i][1])
+
+#print(list(new_list))  # печать для проверки
+
+result = {}
+
+for i in range(len(new_list)):
+    el = new_list[i]  # присваиваем в переменную словарь (каждый эл-т списка в цикле)
+    #print(el, type(el)) - проверяем вывод каждого словаря и его тип
+    for key, val in el.items():
+        if key not in result.keys():
+            result.update(el)
+
+for key in result.keys():
+    val_list = []
+    for i in range(len(new_list)):
+        el = new_list[i]
+        for key1, val1 in el.items():
+            if key1 == key and val1 not in val_list:
+                val_list.append(val1)
+    result[key] = val_list
+
+print('*' * 30)
+print(dict(result))
+
