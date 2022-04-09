@@ -60,3 +60,44 @@ def my_func_4_2(x,y):
         print('Деление на ноль (Zero Division)!')
 
 print(my_func_4_2(2,-3))
+
+# 5
+def my_func_5():
+    result = 0
+    try:
+        while True:
+            data = input('data: ').split()
+            # print(list(data))
+            for el in data:
+                if el == 's':
+                    print(result)
+                    return
+                else:
+                    result = result+int(el)
+            print(result)
+    except ValueError:
+        print('Numbers only!')
+
+my_func_5()
+
+#6
+def my_func6(word):
+    for latter in word:
+        if ord(latter) not in range(97,122):
+            print ('Latin lowercase letters only!')
+            return
+
+    word = word.title()
+    return word
+
+print(my_func6(input('Enter some word: ')))
+
+#7
+my_str = (input('Enter some string: ')).split() #список <class 'list'>
+result = ''
+try:
+    for word in my_str:
+        result = ' '.join([result,my_func6(word)])
+    print(result)
+except TypeError:
+    print('Type Error')
