@@ -55,6 +55,5 @@ def func_7(n):
         result = result*i
         yield result
 
-f = func_7(4)
-for el in f:
+for el in func_7(4):
     print(el)
