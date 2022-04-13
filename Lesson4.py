@@ -1,7 +1,8 @@
-# 1
 from sys import argv
 from functools import reduce
+from itertools import count, cycle
 
+# 1
 prod_in_hours, rate, bonus = map(int, argv[1:])
 salary = (prod_in_hours * rate) + bonus
 
@@ -23,8 +24,37 @@ print(new_list)
 
 # 5
 list5 = [el for el in range(100, 1001) if el % 2 == 0]
-def func_5(a,b):
-    return a*b
 
-result = reduce(func_5,list5)
+
+def func_5(a, b):
+    return a * b
+
+
+result = reduce(func_5, list5)
 print(result)
+
+# 6
+for el in count(5):
+    if el > 10:
+        break
+    else:
+        print(el)
+
+list6 = ['Juchka', 'cat', 'mouse']
+c = 0
+for el in cycle(list6):
+    if c > 10:
+        break
+    print(el)
+    c += 1
+
+#7
+def func_7(n):
+    result = 1
+    for i in range(1,n+1):
+        result = result*i
+        yield result
+
+f = func_7(4)
+for el in f:
+    print(el)
