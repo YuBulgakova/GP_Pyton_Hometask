@@ -35,7 +35,7 @@ try:
             sum += salary
             n += 1
             if salary < 20000:
-                print('Получает менее 20 тыс.: ',surname)
+                print('Получает менее 20 тыс.: ', surname)
         med_sal = round(sum / n, 2)
         print(f'Medium salary = {med_sal}')
 except IOError:
@@ -62,53 +62,53 @@ with open('lesson5-5.txt', 'w+', encoding='utf-8') as f:
 
     f.seek(0)
     list1 = f.read().split()
-    print( list1)
+    print(list1)
     summa = 0
     for el in list1:
         summa += int(el)
     print(summa)
 
-#6
+# 6
 subj_dict = {}
 
 with open('lesson5-6_Subjects.txt', 'r', encoding='utf-8') as f:
     for line in f:
-        list6=line.split()
+        list6 = line.split()
         print(list6)
         new_list = []
         summa = 0
         for el in list6:
-             for symb in el:
-                 if ord(symb) not in range(48,57):
-                     el=el.replace(symb,'')
-             if len(el) > 0:
-                new_list.append(el) # в new_list хранятся только числа по каждой строке
+            for symb in el:
+                if ord(symb) not in range(48, 57):
+                    el = el.replace(symb, '')
+            if len(el) > 0:
+                new_list.append(el)  # в new_list хранятся только числа по каждой строке
         for el in new_list:
-            summa +=int(el)
+            summa += int(el)
 
-        subj_dict[list6[0]]=summa
+        subj_dict[list6[0]] = summa
 
     for item in subj_dict.items():
-        print('Название предмета и количество занятий: ',item)
+        print('Название предмета и количество занятий: ', item)
 
-#7
+# 7
 sum_profit = 0
-n=0
-firms={}
+n = 0
+firms = {}
 average_profit = {}
 new_list = []
 
 with open('lesson5-7_firms.txt', 'r', encoding='utf-8') as f:
     for line in f:
-        list7=line.split()
+        list7 = line.split()
         print(list7)
-        profit = int(list7[2])- int(list7[3])
-        if profit >0:
-            sum_profit +=profit
-            n +=1
-        firms[list7[0]]=profit
+        profit = int(list7[2]) - int(list7[3])
+        if profit > 0:
+            sum_profit += profit
+            n += 1
+        firms[list7[0]] = profit
 
-average_profit['average_profit'] = round(sum_profit/n)
+average_profit['average_profit'] = round(sum_profit / n)
 new_list.append(firms)
 new_list.append(average_profit)
 print('Firms list: ', list(new_list))
