@@ -26,17 +26,20 @@ with open(r'lesson5-2_man.txt', 'r', encoding='utf-8') as f:
 
 # 3
 sum = 0
-with open(r'Employees.txt', encoding='utf-8') as f:
-    for line in f:
-        l = line.split()
-        surname = l[0]
-        salary = float(l[1])
-        sum += salary
-        n += 1
-        if salary < 20000:
-            print(surname)
-    med_sal = round(sum / n, 2)
-    print(f'Medium salary = {med_sal}')
+try:
+    with open(r'Employees.txt', encoding='utf-8') as f:
+        for line in f:
+            l = line.split()
+            surname = l[0]
+            salary = float(l[1])
+            sum += salary
+            n += 1
+            if salary < 20000:
+                print('Получает менее 20 тыс.: ',surname)
+        med_sal = round(sum / n, 2)
+        print(f'Medium salary = {med_sal}')
+except IOError:
+    print(r'File doesnt exist. Check the file name')
 
 # 4
 numbers_dict = {'one': 'один', 'two': 'два', 'three': 'три', 'four': 'четыре'}
@@ -59,8 +62,7 @@ with open('lesson5-5.txt', 'w+', encoding='utf-8') as f:
 
     f.seek(0)
     list1 = f.read().split()
-    print(list1)
-    #list1 = map(int, list1) ??
+    print( list1)
     summa = 0
     for el in list1:
         summa += int(el)
@@ -87,7 +89,26 @@ with open('lesson5-6_Subjects.txt', 'r', encoding='utf-8') as f:
         subj_dict[list6[0]]=summa
 
     for item in subj_dict.items():
-        print('Название предмета и общее количество занятий по нему: ',item)
+        print('Название предмета и количество занятий: ',item)
 
+#7
+sum_profit = 0
+n=0
+firms={}
+average_profit = {}
+new_list = []
 
+with open('lesson5-7_firms.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        list7=line.split()
+        print(list7)
+        profit = int(list7[2])- int(list7[3])
+        if profit >0:
+            sum_profit +=profit
+            n +=1
+        firms[list7[0]]=profit
 
+average_profit['average_profit'] = round(sum_profit/n)
+new_list.append(firms)
+new_list.append(average_profit)
+print('Firms list: ', list(new_list))
