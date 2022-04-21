@@ -9,13 +9,13 @@ class Trafficlight:
         print(f'traffic light on')
         mode = Trafficlight.__color[0]
         print(mode)
-    #    sleep(7)
+        sleep(7)
         mode = Trafficlight.__color[1]
         print(mode)
-     #   sleep(2)
+        sleep(2)
         mode = Trafficlight.__color[2]
         print(mode)
-     #   sleep(5)
+        sleep(5)
 
 
 trafficlite1 = Trafficlight()
